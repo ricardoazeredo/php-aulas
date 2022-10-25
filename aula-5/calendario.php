@@ -1,4 +1,5 @@
 <?php
+    include_once "head.php";
     
     function linha($semana){
         echo "<tr>";
@@ -32,7 +33,7 @@
     $hora = date('H');
     $mensagem = '';
 
-    if ($hora >= 0 && $hora < 12) {
+    if ($hora >=0 && $hora < 12) {
         $mensagem = 'Bom dia';
     } else if($hora >= 12 && $hora < 18) {
        $mensagem = 'Boa tarde';     
@@ -44,6 +45,7 @@
 
 
 <body>
+   <?php include_once 'header.php'; ?>
 
    <div class="titulo">
         <h1><?php echo "Calendário"; ?></h1>

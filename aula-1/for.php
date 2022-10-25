@@ -1,5 +1,5 @@
 <?php 
-$nomes = ['Ricardo', 'Ana', 'Thyago'];
+$nomes = ['Ricardo', 'Ana', 'Marcio'];
 
 $arr_length = count($nomes);
 
