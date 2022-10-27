@@ -14,7 +14,7 @@
         //Verifica se tem algum email e conta a quantidade de linhas achadas deste email.
         if(($sql) && ($sql->rowCount() != 0)){
             $resultado = $sql->fetch(PDO::FETCH_ASSOC);
-            //var_dump($resultado);
+            var_dump($resultado);
             if(password_verify($dados['password'], $resultado['senha'])){
                 $_SESSION['id'] = $resultado['id'];
                 $_SESSION['nome'] = $resultado['nome'];
