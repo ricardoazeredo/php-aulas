@@ -1,6 +1,6 @@
 <?php
     session_start();
-    ob_start(); //limpa o buffer de saída. Usado no redirecionamento.
+    ob_start(); 
     require 'head.php';
     require 'config.php';
     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -8,13 +8,12 @@
     if(!empty($dados['SendLogin'])){
     
         $sql = $pdo->prepare("SELECT * FROM tbl_login WHERE email = :email");
-        $sql->bindParam(':email', $dados['email'], PDO::PARAM_STR); //PDO::PARAM_STR só aceitará string para passar para banco.
+        $sql->bindParam(':email', $dados['email'], PDO::PARAM_STR); 
         
         $sql->execute();
-        //Verifica se tem algum email e conta a quantidade de linhas achadas deste email.
+        
         if(($sql) && ($sql->rowCount() != 0)){
             $resultado = $sql->fetch(PDO::FETCH_ASSOC);
-            var_dump($resultado);
             if(password_verify($dados['password'], $resultado['senha'])){
                 $_SESSION['id'] = $resultado['id'];
                 $_SESSION['nome'] = $resultado['nome'];
@@ -28,8 +27,7 @@
         }
 
         if(isset($_SESSION['msg'])){
-            echo $_SESSION['msg'];
-            //Destroi a mensagem para não imprimir na tela novamente
+            echo $_SESSION['msg'];            
             unset($_SESSION['msg']);
         }
     }

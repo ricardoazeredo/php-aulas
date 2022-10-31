@@ -15,9 +15,9 @@
         $sql->bindValue(':email', $email);
         $sql->execute();
 
-        // //Verifico se tem um mesmo email já cadastrado.
+        
         if($sql->rowCount() === 0){
-        //     //Verificar se a senha e a confirmação de senha são iguais.
+       
             if($password === $password_confirm){
                 
                 $password_hash = password_hash($password, PASSWORD_DEFAULT);
